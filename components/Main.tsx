@@ -1,10 +1,19 @@
-import { ActivityIndicator, FlatList, Text, View } from "react-native";
-import { useTree } from "./hooks/useTree";
-import { TreeSpecies } from "./components/TreeSpecies";
+import {
+  ActivityIndicator,
+  // Dimensions,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
+import { useTree } from "../hooks/useTree";
+import { TreeSpecies } from "./TreeSpecies";
+
+// const { height } = Dimensions.get("window");
 
 export function Main() {
   const { data, error, loading } = useTree();
@@ -18,20 +27,9 @@ export function Main() {
           paddingHorizontal: 15,
         }}
       >
-        <Text
-          style={{
-            fontSize: 30,
-            paddingTop: insets.top,
-          }}
-        >
+        <Text style={{ ...styles.title, paddingTop: insets.top }}>
           Senlleiras
         </Text>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: "blue",
-          }}
-        ></View>
         {loading ? (
           <ActivityIndicator color="#f00" size="large" />
         ) : error ? (
@@ -49,3 +47,9 @@ export function Main() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 30,
+  },
+});
