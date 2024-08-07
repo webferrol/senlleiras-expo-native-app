@@ -1,7 +1,8 @@
 import {
   ActivityIndicator,
-  // Dimensions,
+  Dimensions,
   FlatList,
+  ImageBackground,
   StyleSheet,
   Text,
   View,
@@ -13,7 +14,8 @@ import {
 import { useTree } from "../hooks/useTree";
 import { TreeSpecies } from "./TreeSpecies";
 
-// const { height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
+const img = require("../assets/carballo-conxo.jpg");
 
 export function Main() {
   const { data, error, loading } = useTree();
@@ -22,11 +24,30 @@ export function Main() {
 
   return (
     <SafeAreaView>
-      <View
-        style={{
-          paddingHorizontal: 15,
-        }}
-      >
+      <ImageBackground source={img} resizeMode="cover">
+        <View
+          style={{
+            height: height,
+            flex: 1,
+            justifyContent: "space-between",
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 40, textAlign: "center" }}>
+            Carballo banquete de Conxo
+          </Text>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 40,
+              textAlign: "center",
+            }}
+          >
+            Carballo banquete de Conxo
+          </Text>
+        </View>
+      </ImageBackground>
+
+      <View style={{ paddingHorizontal: 15 }}>
         <Text style={{ ...styles.title, paddingTop: insets.top }}>
           Senlleiras
         </Text>
@@ -37,6 +58,7 @@ export function Main() {
         ) : (
           <View>
             <FlatList
+              scrollEnabled={false}
               data={data}
               keyExtractor={(item) => item.idDoc}
               renderItem={({ item }) => <TreeSpecies specimen={item} />}

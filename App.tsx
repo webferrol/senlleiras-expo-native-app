@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { Main } from "./components/Main";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -9,10 +9,12 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
-        {/* <ImageBackground source={img} resizeMode="cover"> */}
-        <StatusBar style="auto" />
-        <Main />
-        {/* </ImageBackground> */}
+        <ScrollView>
+          {/* <ImageBackground source={img} resizeMode="cover"> */}
+          <StatusBar style="auto" backgroundColor="#61dafb" animated={true} />
+          <Main />
+          {/* </ImageBackground> */}
+        </ScrollView>
       </View>
     </SafeAreaProvider>
   );
@@ -21,7 +23,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#ECF0F1",
   },
 });
