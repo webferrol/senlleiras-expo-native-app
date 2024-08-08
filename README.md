@@ -15,8 +15,6 @@ npx create-expo-app@latest --template blank
 
 ## Constantes de expo
 
-### Documentación
-
 - [Docs expo dev](https://docs.expo.dev/versions/latest/sdk/constants/)
 - Primer vídeo de Midudev: minuto `1:19:45`
 
@@ -27,6 +25,9 @@ npx expo install expo-constants
 ```ts
 import Constants from 'expo-constants'
 ```
+
+## SVG
+[react-native-svg](https://docs.expo.dev/versions/latest/sdk/svg/)
 
 ## Componentes
 

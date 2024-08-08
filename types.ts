@@ -1,3 +1,10 @@
+import { SvgProps } from "react-native-svg";
+
+export interface SvgPropsExtends extends SvgProps {
+  xmlns?: string;
+  className?: string;
+}
+
 export interface Tree {
   idDoc: string;
   idEspecie: string;
