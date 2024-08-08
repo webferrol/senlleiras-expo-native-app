@@ -3,6 +3,7 @@ import {
   Dimensions,
   FlatList,
   ImageBackground,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -23,50 +24,55 @@ export function Main() {
   const insets = useSafeAreaInsets();
 
   return (
-    <SafeAreaView>
-      <ImageBackground source={img} resizeMode="cover">
-        <View
-          style={{
-            height: height,
-            flex: 1,
-            justifyContent: "space-between",
-          }}
+    <ScrollView>
+      <SafeAreaView>
+        <ImageBackground
+          style={{ marginTop: -insets.top }}
+          source={img}
+          resizeMode="cover"
         >
-          <Text style={{ color: "white", fontSize: 40, textAlign: "center" }}>
-            Carballo banquete de Conxo
-          </Text>
-          <Text
+          <View
             style={{
-              color: "white",
-              fontSize: 40,
-              textAlign: "center",
+              height: height,
+              flex: 1,
+              justifyContent: "space-evenly",
             }}
           >
-            Carballo banquete de Conxo
-          </Text>
-        </View>
-      </ImageBackground>
-
-      <View style={{ paddingHorizontal: 15 }}>
-        <Text style={{ ...styles.title, paddingTop: insets.top }}>
-          Senlleiras
-        </Text>
-        {loading ? (
-          <ActivityIndicator color="#f00" size="large" />
-        ) : error ? (
-          <Text style={{ color: "#f00" }}>Ufff: {error}</Text>
-        ) : (
-          <View>
-            <FlatList
-              scrollEnabled={false}
-              data={data}
-              keyExtractor={(item) => item.idDoc}
-              renderItem={({ item }) => <TreeSpecies specimen={item} />}
-            />
+            <Text style={{ color: "white", fontSize: 40, textAlign: "center" }}>
+              Carballo banquete de Conxo
+            </Text>
+            <Text
+              style={{
+                color: "white",
+                fontSize: 40,
+                textAlign: "center",
+              }}
+            >
+              Carballo banquete de Conxo
+            </Text>
           </View>
-        )}
-      </View>
-    </SafeAreaView>
+        </ImageBackground>
+        <View style={{ paddingHorizontal: 15 }}>
+          <Text style={{ ...styles.title, paddingTop: insets.top }}>
+            Senlleiras
+          </Text>
+          {loading ? (
+            <ActivityIndicator color="#f00" size="large" />
+          ) : error ? (
+            <Text style={{ color: "#f00" }}>Ufff: {error}</Text>
+          ) : (
+            <View>
+              <FlatList
+                scrollEnabled={false}
+                data={data}
+                keyExtractor={(item) => item.idDoc}
+                renderItem={({ item }) => <TreeSpecies specimen={item} />}
+              />
+            </View>
+          )}
+        </View>
+      </SafeAreaView>
+    </ScrollView>
   );
 }
 

@@ -1,20 +1,21 @@
+import { StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, StyleSheet, View } from "react-native";
-import { Main } from "./components/Main";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
-// import img from "./assets/carballo-conxo.jpg";
+import { Main } from "./components/Main";
+import { FixedMenu } from "./components/FixedMenu";
 
 export default function App() {
   return (
     <SafeAreaProvider>
+      <StatusBar
+        translucent={true}
+        style="auto"
+        backgroundColor="rgba(53,125,161, .4)"
+        animated={true}
+      />
       <View style={styles.container}>
-        <ScrollView>
-          {/* <ImageBackground source={img} resizeMode="cover"> */}
-          <StatusBar style="auto" backgroundColor="#61dafb" animated={true} />
-          <Main />
-          {/* </ImageBackground> */}
-        </ScrollView>
+        <FixedMenu />
+        <Main />
       </View>
     </SafeAreaProvider>
   );
