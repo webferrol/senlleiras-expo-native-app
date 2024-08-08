@@ -29,6 +29,10 @@ import Constants from 'expo-constants'
 ## SVG
 [react-native-svg](https://docs.expo.dev/versions/latest/sdk/svg/)
 
+## Tailwind
+
+[nativewind](https://www.nativewind.dev/quick-starts/react-native-cli)
+
 ## Componentes
 
 ### FlatList

@@ -41,7 +41,14 @@ export function Main() {
               alignItems: "center",
             }}
           >
-            <Image style={{ width: 200, objectFit: "contain" }} source={ico} />
+            <Image
+              style={{
+                width: 200,
+                objectFit: "contain",
+                backgroundColor: "#fff",
+              }}
+              source={ico}
+            />
             <Text
               style={{
                 color: "white",
